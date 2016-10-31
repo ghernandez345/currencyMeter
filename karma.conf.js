@@ -1,12 +1,12 @@
 // Karma configuration
 
-var webpackTestConfig = require('./webpack.config.test');
+var webpackConfig = require('./webpack.config');
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: 'src',
+    basePath: '',
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
@@ -17,7 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'testIndex.js'
+      'test/index.js'
     ],
 
     // list of files to exclude
@@ -27,15 +27,50 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/testIndex.js': ['webpack']
+      // add webpack as preprocessor
+      'test/index.js': ['webpack']
     },
 
-    webpackMiddleware: webpackTestConfig,
+    // webpack configuration
+    webpack: {
+
+      module: {
+
+        loaders: [
+          {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+          },
+
+          {
+            test: /\.css$/,
+            loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[local]'
+          },
+
+        ]
+
+      },
+
+      resolve: webpackConfig.resolve,
+
+      externals: {
+        'cheerio': 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+      },
+    },
+
+    // webpack-dev-middleware configuration
+    webpackMiddleware: {
+      stats: 'errors-only'
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha'],
 
     // web server port
     port: 9876,
@@ -49,6 +84,14 @@ module.exports = function(config) {
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
+
+    plugins: [
+      require('karma-webpack'),
+      require('karma-mocha'),
+      require('karma-chai'),
+      require('karma-phantomjs-launcher'),
+      require('karma-mocha-reporter')
+    ],
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
