@@ -1,8 +1,11 @@
 var path = require('path');
 
+var SRC_CONTEXT = path.join(__dirname, './src');
+var PUBLIC_PATH = path.join(__dirname, './public');
+
 module.exports = {
 
-  context: path.join(__dirname, './src'),
+  context: SRC_CONTEXT,
 
   entry: './main',
 
@@ -10,7 +13,7 @@ module.exports = {
 
     filename: 'bundle.js',
 
-    path: path.join(__dirname, './dist')
+    path: PUBLIC_PATH
 
   },
 
