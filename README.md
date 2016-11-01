@@ -2,9 +2,9 @@
 
 ## Running
 
-Before anything run command `npm install`.
+Before anything run the command `npm install`.
 
-To start the app run `npm start`. Then go to http://localhost:3000
+To start the app run `npm start`. Then go to http://localhost:3000.
 
 To build the bundle run `npm run build`.
 
@@ -36,4 +36,4 @@ Some interesting things to note in the application:
 
 - With more time I'd like to clean up some of the css. I'd actually rather use SCSS, but just felt that wasn't necessary given it's only one component.
 
-- I'd also clean up the dev and build system. I'd make it easier to develop. It's easy to start and see the app, but to develop you must run both `npm start` and `npm run build`.
+- I'd also clean up the build system and make it easier to develop. It's easy to start and see the app, but to develop you must run both `npm start` and `npm run build`.
