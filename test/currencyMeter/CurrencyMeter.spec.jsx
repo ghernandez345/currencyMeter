@@ -18,7 +18,7 @@ describe('CurrencyMeter component', () => {
       expect(wrapper.find('.max').text()).to.equal('-');
     });
 
-    it('should render the pointer style at 0 degee of rotation', () => {
+    it('should render the pointer style at 0 degees of rotation', () => {
       expect(wrapper.find('.pointer').props().style.transform).to.equal('rotate(0deg)');
     });
 
@@ -36,11 +36,11 @@ describe('CurrencyMeter component', () => {
       expect(wrapper.find('.max').text()).to.equal('£200');
     });
 
-    it('should render the correct currency based on the passed in currency', () => {
+    it('should render the correct value and currency symbol', () => {
       expect(wrapper.find('.value').text()).to.equal('£100');
     });
 
-    it('should render the pointer style at the correct degres of rotation', () => {
+    it('should render the pointer style at the correct degress of rotation', () => {
       expect(wrapper.find('.pointer').props().style.transform).to.equal('rotate(90deg)');
     });
 
