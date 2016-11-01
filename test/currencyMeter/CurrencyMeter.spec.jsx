@@ -18,6 +18,10 @@ describe('CurrencyMeter component', () => {
       expect(wrapper.find('.max').text()).to.equal('-');
     });
 
+    it('should render the pointer style at 0 degee of rotation', () => {
+      expect(wrapper.find('.pointer').props().style.transform).to.equal('rotate(0deg)');
+    });
+
   });
 
   describe('Given a set of intial props', () => {
@@ -33,7 +37,11 @@ describe('CurrencyMeter component', () => {
     });
 
     it('should render the correct currency based on the passed in currency', () => {
-      expect(wrapper.find('.value').text()).to.equal('£34');
+      expect(wrapper.find('.value').text()).to.equal('£100');
+    });
+
+    it('should render the pointer style at the correct degres of rotation', () => {
+      expect(wrapper.find('.pointer').props().style.transform).to.equal('rotate(90deg)');
     });
 
   });
@@ -42,7 +50,7 @@ describe('CurrencyMeter component', () => {
 
 function generateMockData() {
   return {
-    value: 34,
+    value: 100,
     min: 0,
     max: 200,
     format: 'currency',

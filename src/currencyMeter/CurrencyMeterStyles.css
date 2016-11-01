@@ -1,19 +1,60 @@
-.minCurrencySymbol {
+.currencyMeter {
+  height: 260px;
+  position: relative;
+  width: 300px;
+}
+
+.minValue, .maxValue, .currencyValue, .semiCircle, .pointerRoot, .pointer {
+  position: absolute;
+}
+
+.minValue {
+  bottom: 0;
+  left: 0;
+}
+
+.maxValue {
+  bottom: 0;
+  right: 0;
+}
+
+.currencyValue, .pointerRoot {
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, 0);
+}
+
+.min, .max, .value {
+  font-size: 2rem;
+}
+
+.semiCircle {
+  bottom: 50px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  border-radius: 300px 300px 0 0;
+  height: 150px;
+  width: 300px;
 
 }
 
-.maxCurrencySymbol {
-
+.pointerRoot, .pointer {
+  background-color: black;
 }
 
-.min {
-
+.pointerRoot {
+  bottom: 25px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
-.max {
+.pointer {
+  bottom: 50px;
+  height: 5px;
+  left: -15px;
+  width: 165px;
 
-}
-
-.value {
-  
+  transform-origin: right;
+  transition: all .75s cubic-bezier(0.52, 0.22, 0.53, 1.22);
 }
