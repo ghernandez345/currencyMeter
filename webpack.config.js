@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 var SRC_CONTEXT = path.join(__dirname, './src');
 var PUBLIC_PATH = path.join(__dirname, './public');
@@ -7,7 +8,7 @@ module.exports = {
 
   context: SRC_CONTEXT,
 
-  entry: './main',
+  entry: ['whatwg-fetch', './main'],
 
   output: {
 

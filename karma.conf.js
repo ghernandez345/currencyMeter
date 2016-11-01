@@ -52,14 +52,15 @@ module.exports = function(config) {
 
       },
 
-      resolve: webpackConfig.resolve,
-
       externals: {
         'cheerio': 'window',
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': true
       },
+
+      resolve: webpackConfig.resolve
+
     },
 
     // webpack-dev-middleware configuration
