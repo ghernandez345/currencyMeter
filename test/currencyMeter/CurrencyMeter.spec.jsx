@@ -7,7 +7,7 @@ describe('CurrencyMeter component', () => {
 
   let wrapper;
 
-  describe('given no inital props', () => {
+  describe('Given no inital props', () => {
 
     beforeEach(() => {
       wrapper = shallow(<CurrencyMeter />)
